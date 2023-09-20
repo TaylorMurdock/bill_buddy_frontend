@@ -61,7 +61,7 @@ Happy subscription tracking with Bill Buddy! Stay on top of your bills, manage y
 
 ## Mock Up of UI:
 
-![Wireframe]()
+![Wireframe](/Users/taylormurdock/Desktop/GA Coding/unit4/week22/project4/billbuddyfront/public/images/WireFrameBillBuddy.png)
 
 ## List of Backend Endpoints:
 
