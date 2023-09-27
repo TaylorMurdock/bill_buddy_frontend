@@ -57,3 +57,46 @@ export const deleteAction = async ({ params }) => {
 };
 
 // Update Action
+export const updateAction = async ({ request, params }) => {
+  const id = params.id;
+
+  // parse out the form data
+  const formData = await request.formData();
+
+  // construct the body for our API call
+  const updatedBill = {
+    id, // Include the ID in the updated data
+    name_of_subscription: formData.get("name_of_subscription"),
+    subscription_image_url: formData.get("subscription_image_url"),
+    bill_date: formData.get("bill_date"),
+    subscription_price: formData.get("subscription_price"),
+  };
+
+  console.log("updateAction - id:", id); // Log the ID
+
+  // Make a request to update the bill
+  await fetch(url + id + "/", {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedBill),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        console.error(
+          "Error updating bill:",
+          response.status,
+          response.statusText
+        );
+      }
+    })
+    .catch((error) => {
+      console.error("Error updating bill:", error);
+    });
+
+  console.log("updateAction - Bill updated successfully!"); // Log success
+
+  // Redirect to the index page after updating
+  return redirect("/");
+};
