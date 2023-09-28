@@ -6,8 +6,7 @@ function Post({ post }) {
     <div>
       <Link to={`/post/${post.id}`}>
         <h1>{post.name_of_subscription}</h1>
-        <img src={post.subscription_image_url} />
-        <h2>{post.bill_date}</h2>
+        <img src={post.subscription_image_url} alt="" />
         <h2>{post.subscription_price}</h2>
       </Link>
     </div>

@@ -1,0 +1,268 @@
+/* index.js */
+
+.app-header {
+    text-align: center;
+    background-color: #d1d7d92e;
+    color: #020202;
+    font-size: 60px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    font-family: 'Dela Gothic One';
+}
+
+.index-container {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    /* Darker background color */
+    color: #fff;
+    /* White text color */
+    height: auto;
+    border-radius: 10px;
+    /* Add rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bills-list {
+    list-style: none;
+    color: whitesmoke;
+    padding: 0;
+}
+
+.bills-list li {
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    /* Slightly lighter border color */
+    padding: 10px;
+    background-color: #292929ea;
+    /* Slightly lighter background color */
+    color: whitesmoke;
+    /* White text color */
+    border-radius: 10px;
+    /* Add rounded corners */
+}
+
+body {
+    background-image: url('./billbuddyimages/billbuddybg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    font-family: 'Roboto', sans-serif;
+    /* Example font family */
+}
+
+/* Style the form and its elements */
+form {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    /* Darker background color */
+    color: #fff;
+    /* White text color */
+    max-width: 400px;
+    /* Adjust as needed */
+    margin: 0 auto;
+    transition: max-height 0.5s ease-in-out;
+    color: whitesmoke;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    /* Slightly lighter border color */
+    background-color: #292929ea;
+    /* Slightly lighter background color */
+    color: #fff;
+    /* White text color */
+}
+
+form button {
+    background-color: #333;
+    /* Dark background color */
+    color: #fff;
+    /* White text color */
+    padding: 0px 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    margin-top: 15px;
+
+}
+
+form button:hover {
+    background-color: #555;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Darker background color on hover */
+}
+
+.bill-list-header {
+    background-color: #292929ea;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    /* Add rounded corners */
+}
+
+.subscription-form {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    max-width: 400px;
+    background-color: #373736;
+    border-radius: 25px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    margin-top: 15px;
+}
+
+.search-button {
+    background-color: #9B4DCB;
+    color: #fff;
+    border: none;
+    padding: 0px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.search-button:hover {
+    background-color: #616C76;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+a {
+    color: whitesmoke !important;
+}
+
+/* SHOW PAGE */
+
+.show-container {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #373736;
+    /* Background color for the show page */
+    color: whitesmoke;
+    /* Text color for the show page */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-image {
+    max-width: 100%;
+    /* Ensure the image fits within the container */
+    margin: 20px 0;
+    /* Add some margin to the image */
+}
+
+.update-subscription {
+    text-align: center;
+    /* Center the text within the container */
+    padding: 20px;
+    background-color: #363636;
+    /* Background color for the update section */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    /* Add margin between sections */
+}
+
+.update-subscription h2 {
+    margin-bottom: 20px;
+    /* Add some space below the heading */
+}
+
+.subscription-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    /* Update the input border color */
+    background-color: #f8f8f8;
+    /* Update the input background color */
+    color: #333;
+    /* Update the input text color */
+}
+
+.subscription-form button {
+    background-color: #9B4DCB;
+    /* Dark background color */
+    color: #fff;
+    /* White text color */
+    padding: 0px 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.delete-subscription {
+    text-align: center;
+    /* Center the text within the container */
+    margin-top: 20px;
+}
+
+.delete-subscription button {
+    background-color: #B60B17;
+    color: #fff;
+    padding: 0px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    margin: 0 auto;
+    /* Center the button horizontally */
+}
+
+.back-link {
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    /* Position at the top */
+    left: 50%;
+    /* Position at the center horizontally (adjust as needed) */
+    transform: translateX(-50%);
+    /* Center horizontally */
+    background-color: #333;
+    /* Background color for the link */
+    color: #fff;
+    /* Text color for the link */
+    padding: 10px 20px;
+    /* Add padding to the link */
+    border-radius: 5px;
+    /* Add rounded corners */
+    text-decoration: none;
+    /* Remove underlines from the link */
+    z-index: 9999;
+    /* Ensure it appears on top of other elements */
+}

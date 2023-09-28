@@ -1,4 +1,9 @@
-import { Link, useLoaderData, Form, useNavigate } from "react-router-dom";
+import React, {
+  Link,
+  useLoaderData,
+  Form,
+  useNavigate,
+} from "react-router-dom";
 
 function Show(props) {
   const post = useLoaderData();
@@ -80,15 +85,19 @@ function Show(props) {
   }
 
   return (
-    <div>
-      <h1>{post.name_of_subscription}</h1>
-      <img src={post.subscription_image_url} alt="" />
+    <div className="show-container">
+      {/* <h1>{post.name_of_subscription}</h1> */}
+      <img
+        src={post.subscription_image_url}
+        alt=""
+        className="subscription-image"
+      />
       <p>Bill Date: {post.bill_date}</p>
       <p>Price: {post.subscription_price}</p>
 
-      <div>
+      <div className="update-subscription">
         <h2>Update Subscription</h2>
-        <Form onSubmit={handleUpdateSubmit}>
+        <Form onSubmit={handleUpdateSubmit} className="subscription-form">
           <input
             type="text"
             name="name_of_subscription"
@@ -105,14 +114,16 @@ function Show(props) {
         </Form>
 
         {/* Container for the delete button */}
-        <div>
+        <div className="delete-subscription">
           {/* Button to trigger the delete operation */}
           <button onClick={() => handleDeleteClick(post.id)}>
             Delete Subscription
           </button>
         </div>
       </div>
-      <Link to="/">Back to Subscriptions</Link>
+      <Link to="/" className="back-link">
+        Back to Subscriptions
+      </Link>
     </div>
   );
 }
