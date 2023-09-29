@@ -307,3 +307,11 @@ a {
     z-index: 9999;
     /* Ensure it appears on top of other elements */
 }
+
+/* Media query for screens up to 424px */
+@media screen and (max-width: 424px) {
+    .bills-list li h2 {
+        font-size: 16px;
+        /* Smaller font size for h2 elements within .bills-list li */
+    }
+}
