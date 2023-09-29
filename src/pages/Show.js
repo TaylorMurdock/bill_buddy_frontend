@@ -4,10 +4,22 @@ import React, {
   Form,
   useNavigate,
 } from "react-router-dom";
+import { format } from "date-fns";
 
+// This is a functional component called "Show" used for displaying a single subscription.
 function Show(props) {
+  // Fetch the post data using the useLoaderData hook
   const post = useLoaderData();
+
+  // A hook for navigating to different routes
   const navigate = useNavigate();
+
+  // Function to format the bill date
+  function formatBillDate(dateString) {
+    const parsedDate = new Date(dateString);
+    const formattedDate = format(parsedDate, "MM-dd-yyyy");
+    return formattedDate;
+  }
 
   // Function to handle the delete click
   async function handleDeleteClick(id) {
@@ -20,7 +32,7 @@ function Show(props) {
       );
 
       if (response.ok) {
-        navigate("/"); // Redirect to the index page
+        navigate("/"); // Redirect to the index page after successful deletion
       } else {
         console.error(
           "Error deleting resource:",
@@ -84,17 +96,19 @@ function Show(props) {
     }
   }
 
+  // Render the subscription details and update/delete forms
   return (
     <div className="show-container">
-      {/* <h1>{post.name_of_subscription}</h1> */}
+      {/* Display the subscription details */}
       <img
         src={post.subscription_image_url}
         alt=""
         className="subscription-image"
       />
-      <p>Bill Date: {post.bill_date}</p>
+      <p>Bill Date: {formatBillDate(post.bill_date)}</p>
       <p>Price: {post.subscription_price}</p>
 
+      {/* Update Subscription Form */}
       <div className="update-subscription">
         <h2>Update Subscription</h2>
         <Form onSubmit={handleUpdateSubmit} className="subscription-form">
@@ -121,6 +135,8 @@ function Show(props) {
           </button>
         </div>
       </div>
+
+      {/* Link to go back to the index page */}
       <Link to="/" className="back-link">
         Back to Subscriptions
       </Link>
@@ -128,4 +144,5 @@ function Show(props) {
   );
 }
 
+// Export the Show component as the default export of this module.
 export default Show;

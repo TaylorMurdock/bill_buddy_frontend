@@ -1,70 +1,81 @@
-/* index.js */
-
+/* Styles for the header of the app */
 .app-header {
     text-align: center;
     background-color: #d1d7d92e;
+    /* Background color with transparency */
     color: #020202;
+    /* Text color */
     font-size: 60px;
+    /* Font size */
     margin-bottom: 5px;
+    /* Margin at the bottom */
     border-radius: 10px;
+    /* Rounded corners */
     font-family: 'Dela Gothic One';
+    /* Custom font family */
 }
 
+/* Styles for the main container of the index page */
 .index-container {
     text-align: center;
     margin: 0 auto;
     max-width: 600px;
+    /* Maximum width of the container */
     padding: 20px;
-    /* Darker background color */
     color: #fff;
-    /* White text color */
+    /* Text color */
     height: auto;
     border-radius: 10px;
-    /* Add rounded corners */
+    /* Rounded corners */
     display: flex;
     flex-direction: column;
+    /* Display as a column */
     align-items: center;
+    /* Center content horizontally */
 }
 
+/* Styles for the list of bills */
 .bills-list {
     list-style: none;
     color: whitesmoke;
+    /* Text color */
     padding: 0;
 }
 
 .bills-list li {
     margin-bottom: 20px;
     border: 1px solid #444;
-    /* Slightly lighter border color */
+    /* Border */
     padding: 10px;
     background-color: #292929ea;
-    /* Slightly lighter background color */
+    /* Background color with transparency */
     color: whitesmoke;
-    /* White text color */
+    /* Text color */
     border-radius: 10px;
-    /* Add rounded corners */
+    /* Rounded corners */
 }
 
+/* Styles for the background and fonts of the entire page */
 body {
     background-image: url('./billbuddyimages/billbuddybg.jpg');
+    /* Background image */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll;
     font-family: 'Roboto', sans-serif;
-    /* Example font family */
+    /* Font family */
 }
 
-/* Style the form and its elements */
+/* Styles for form elements */
 form {
     text-align: center;
     margin-top: 20px;
     padding: 20px;
     background-color: #1a1a1a;
-    /* Darker background color */
+    /* Dark background color */
     color: #fff;
-    /* White text color */
+    /* Text color */
     max-width: 400px;
-    /* Adjust as needed */
     margin: 0 auto;
     transition: max-height 0.5s ease-in-out;
     color: whitesmoke;
@@ -75,57 +86,69 @@ form input[type="text"] {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #444;
-    /* Slightly lighter border color */
+    /* Border */
     background-color: #292929ea;
-    /* Slightly lighter background color */
+    /* Background color with transparency */
     color: #fff;
-    /* White text color */
+    /* Text color */
 }
 
 form button {
     background-color: #333;
     /* Dark background color */
     color: #fff;
-    /* White text color */
+    /* Text color */
     padding: 0px 10px;
     border: none;
     cursor: pointer;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Box shadow */
     transition: background-color 0.3s, box-shadow 0.3s;
     border-radius: 10px;
+    /* Rounded corners */
     margin-top: 15px;
-
 }
 
+/* Hover effect for form buttons */
 form button:hover {
     background-color: #555;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     /* Darker background color on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Box shadow on hover */
 }
 
+/* Styles for the header of the bill list */
 .bill-list-header {
     background-color: #292929ea;
+    /* Background color with transparency */
     border-radius: 10px;
+    /* Rounded corners */
     transition: background-color 0.3s;
-    /* Add rounded corners */
+    /* Transition effect */
 }
 
+/* Styles for the subscription form */
 .subscription-form {
     max-height: 500px;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out;
     border-radius: 10px;
+    /* Rounded corners */
 }
 
+/* Styles for the search bar */
 .search-bar {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
     max-width: 400px;
     background-color: #373736;
+    /* Background color */
     border-radius: 25px;
+    /* Rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Box shadow */
     overflow: hidden;
 }
 
@@ -138,7 +161,9 @@ form button:hover {
 
 .search-button {
     background-color: #9B4DCB;
+    /* Background color */
     color: #fff;
+    /* Text color */
     border: none;
     padding: 0px 20px;
     margin-left: 10px;
@@ -146,72 +171,82 @@ form button:hover {
     transition: background-color 0.3s ease-in-out;
 }
 
+/* Hover effect for search button */
 .search-button:hover {
     background-color: #616C76;
 }
 
 .error-message {
     color: red;
+    /* Error message color */
     margin-top: 10px;
     text-align: center;
 }
 
+/* Styles for links */
 a {
     color: whitesmoke !important;
+    /* Link text color */
 }
 
-/* SHOW PAGE */
-
+/* Styles for the show page */
 .show-container {
     text-align: center;
     margin: 0 auto;
     margin-top: 50px;
     max-width: 600px;
+    /* Maximum width of the container */
     padding: 20px;
     background-color: #373736;
-    /* Background color for the show page */
+    /* Background color */
     color: whitesmoke;
-    /* Text color for the show page */
+    /* Text color */
     border-radius: 10px;
+    /* Rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Box shadow */
 }
 
 .subscription-image {
     max-width: 100%;
     /* Ensure the image fits within the container */
     margin: 20px 0;
-    /* Add some margin to the image */
+    /* Margin around the image */
 }
 
+/* Styles for the update subscription section */
 .update-subscription {
     text-align: center;
-    /* Center the text within the container */
     padding: 20px;
     background-color: #363636;
-    /* Background color for the update section */
+    /* Background color */
     border-radius: 10px;
+    /* Rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Box shadow */
     margin-top: 20px;
-    /* Add margin between sections */
+    /* Margin at the top */
 }
 
 .update-subscription h2 {
     margin-bottom: 20px;
-    /* Add some space below the heading */
+    /* Margin below the heading */
 }
 
+/* Styles for input fields in the subscription form */
 .subscription-form input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    /* Update the input border color */
+    /* Border */
     background-color: #f8f8f8;
-    /* Update the input background color */
+    /* Background color */
     color: #333;
-    /* Update the input text color */
+    /* Text color */
 }
 
+/* Styles for buttons in the subscription form */
 .subscription-form button {
     background-color: #9B4DCB;
     /* Dark background color */
@@ -222,35 +257,41 @@ a {
     cursor: pointer;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Box shadow */
     transition: background-color 0.3s, box-shadow 0.3s;
     border-radius: 10px;
+    /* Rounded corners */
     margin-top: 15px;
 }
 
+/* Styles for the delete subscription section */
 .delete-subscription {
     text-align: center;
-    /* Center the text within the container */
     margin-top: 20px;
 }
 
 .delete-subscription button {
     background-color: #B60B17;
+    /* Background color */
     color: #fff;
+    /* Text color */
     padding: 0px 20px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
     border-radius: 10px;
+    /* Rounded corners */
     margin: 0 auto;
     /* Center the button horizontally */
 }
 
+/* Styles for the back link to return to the index page */
 .back-link {
     position: fixed;
     /* Fixed position */
     top: 0;
     /* Position at the top */
     left: 50%;
-    /* Position at the center horizontally (adjust as needed) */
+    /* Position at the center horizontally */
     transform: translateX(-50%);
     /* Center horizontally */
     background-color: #333;
@@ -258,9 +299,9 @@ a {
     color: #fff;
     /* Text color for the link */
     padding: 10px 20px;
-    /* Add padding to the link */
+    /* Padding for the link */
     border-radius: 5px;
-    /* Add rounded corners */
+    /* Rounded corners */
     text-decoration: none;
     /* Remove underlines from the link */
     z-index: 9999;

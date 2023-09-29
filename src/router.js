@@ -9,10 +9,12 @@ import Show from "./pages/Show";
 import { indexLoader, showLoader } from "./loaders";
 import { createAction, deleteAction, updateAction } from "./actions";
 
+// Create a BrowserRouter and define the routes
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />}>
+        {/* Define routes and components */}
         <Route path="" element={<Index />} loader={indexLoader} />
         <Route path="post/:id" element={<Show />} loader={showLoader} />
         <Route path="create" action={createAction} />
