@@ -309,8 +309,8 @@ a {
 }
 
 /* Media query for screens up to 424px */
-/* @media screen and (max-width: 424px) {
+@media screen and (max-width: 424px) {
     .bills-list li h2 {
         font-size: 16px;
     }
-} */
+}
