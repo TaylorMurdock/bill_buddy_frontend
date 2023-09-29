@@ -61,7 +61,7 @@ function Index(props) {
           <input
             type="text"
             name="bill_date"
-            placeholder="Bill date yyyy-mm-dd"
+            placeholder="Bill date mm-dd-yyyy"
           />
           <input type="text" name="subscription_price" placeholder="Price" />
           <button>Create a new subscription</button>

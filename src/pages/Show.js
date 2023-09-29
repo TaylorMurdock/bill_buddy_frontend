@@ -4,7 +4,6 @@ import React, {
   Form,
   useNavigate,
 } from "react-router-dom";
-import { format } from "date-fns";
 
 // This is a functional component called "Show" used for displaying a single subscription.
 function Show(props) {
@@ -14,11 +13,10 @@ function Show(props) {
   // A hook for navigating to different routes
   const navigate = useNavigate();
 
-  // Function to format the bill date
-  function formatBillDate(dateString) {
-    const parsedDate = new Date(dateString);
-    const formattedDate = format(parsedDate, "MM-dd-yyyy");
-    return formattedDate;
+  // Function to format the date from "yyyy-mm-dd" to "dd-mm-yyyy"
+  function formatDate(dateString) {
+    const [year, month, day] = dateString.split("-");
+    return `${month}-${day}-${year}`;
   }
 
   // Function to handle the delete click
@@ -55,9 +53,17 @@ function Show(props) {
     // Get the form data
     const formData = new FormData(event.target);
 
+    // Format the date as "yyyy-MM-dd" before sending it to the backend
+    const userFriendlyDate = formData.get("bill_date");
+    const [month, day, year] = userFriendlyDate.split("-");
+    const formattedBillDate = `${year}-${month}-${day}`;
+
+    // Add the formatted date to the updatedData object
+    updatedData["bill_date"] = formattedBillDate;
+
     // Iterate over the form fields and add them to the updatedData object
     formData.forEach((value, key) => {
-      if (value.trim() !== "") {
+      if (value.trim() !== "" && key !== "bill_date") {
         updatedData[key] = value;
       }
     });
@@ -105,7 +111,7 @@ function Show(props) {
         alt=""
         className="subscription-image"
       />
-      <p>Bill Date: {formatBillDate(post.bill_date)}</p>
+      <p>Bill Date: {formatDate(post.bill_date)}</p>
       <p>Price: {post.subscription_price}</p>
 
       {/* Update Subscription Form */}
@@ -122,7 +128,11 @@ function Show(props) {
             name="subscription_image_url"
             placeholder="Image url"
           />
-          <input type="text" name="bill_date" placeholder="Bill Date" />
+          <input
+            type="text"
+            name="bill_date"
+            placeholder="Bill Date (mm-dd-yyyy)"
+          />
           <input type="text" name="subscription_price" placeholder="Price" />
           <button>Update Subscription</button>
         </Form>
