@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-const url = "https://bill-buddy-backend.onrender.com/bills/";
+const url = "https://bill-buddy-backend.onrender.com";
 
 // Function to format the date from "mm-dd-yyyy" to "yyyy-mm-dd"
 function formatDate(dateString) {
@@ -26,7 +26,7 @@ export const createAction = async ({ request }) => {
   console.log("after change", newBill.bill_date);
 
   // make a request to create a bill
-  await fetch(url, {
+  await fetch(url + "/bills/", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export const deleteAction = async ({ params }) => {
   console.log("deleteAction - id:", id); // Log the ID
 
   // Make a request to delete the bill
-  await fetch(url + id, {
+  await fetch(url + "/bills" + "/" + id, {
     method: "delete",
   })
     .then((response) => {
@@ -92,7 +92,7 @@ export const updateAction = async ({ request, params }) => {
   // ...
 
   // Make a request to update the bill using PUT
-  await fetch(url + id + "/", {
+  await fetch(url + "/bills" + id + "/", {
     method: "PUT", // Use PUT instead of POST
     headers: {
       "Content-Type": "application/json",
@@ -102,4 +102,37 @@ export const updateAction = async ({ request, params }) => {
 
   // Redirect to the index page after updating
   return redirect("/");
+};
+
+//Sign up action
+export const signUpAction = async (user) => {
+  try {
+    const response = await fetch(url + "/users/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//Sign up action
+export const loginAction = async (user) => {
+  try {
+    const response = await fetch(url + "/users/", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
 };

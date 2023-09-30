@@ -6,6 +6,7 @@ import {
 import App from "./App";
 import Index from "./pages/Index";
 import Show from "./pages/Show";
+import Auth from "./pages/Auth";
 import { indexLoader, showLoader } from "./loaders";
 import { createAction, deleteAction, updateAction } from "./actions";
 
@@ -15,7 +16,8 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<App />}>
         {/* Define routes and components */}
-        <Route path="" element={<Index />} loader={indexLoader} />
+        <Route path="/auth/:action" element={<Auth />} />
+        <Route path="/" element={<Index />} loader={indexLoader} />
         <Route path="post/:id" element={<Show />} loader={showLoader} />
         <Route path="create" action={createAction} />
         <Route path="update/:id" action={updateAction} />

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
-import { useLoaderData, Form } from "react-router-dom";
+import { useLoaderData, Form, redirect, Link } from "react-router-dom";
 import Post from "../components/Post";
 import SearchBar from "../components/SearchBar";
 import "../index.css"; // Import your custom CSS file
@@ -27,6 +27,13 @@ function Index(props) {
 
   // Define a state variable to track whether the form is open or closed
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const loginValue = localStorage.getItem("login");
+
+    setLoggedIn(loginValue);
+  }, [loggedIn]);
 
   // Function to toggle the form's visibility
   const toggleForm = () => {
@@ -34,54 +41,77 @@ function Index(props) {
     setIsFormOpen(!isFormOpen);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("login");
+    setLoggedIn(false);
+  };
+
   // Map over the bills and create a Post component for each bill
   return (
-    <div className="index-container">
-      {/* Add a header for the app name */}
-      <header className="app-header">Bill Buddy</header>
+    <div>
+      {loggedIn === "true" ? (
+        <div className="index-container">
+          {/* Add a header for the app name */}
+          <button onClick={handleLogout}>Logout</button>
+          <header className="app-header">Bill Buddy</header>
 
-      {/* Create a button to toggle the visibility of the subscription form */}
-      <button className="toggle-form-button" onClick={toggleForm}>
-        {isFormOpen ? "Close Form" : "Add a subscription"}
-      </button>
+          {/* Create a button to toggle the visibility of the subscription form */}
+          <button className="toggle-form-button" onClick={toggleForm}>
+            {isFormOpen ? "Close Form" : "Add a subscription"}
+          </button>
 
-      {/* Conditionally render the subscription form if isFormOpen is true */}
-      {isFormOpen && (
-        <Form className="subscription-form" method="post" action="/create">
-          <input
-            type="text"
-            name="name_of_subscription"
-            placeholder="Subscription"
-          />
-          <input
-            type="text"
-            name="subscription_image_url"
-            placeholder="Image url"
-          />
-          <input
-            type="text"
-            name="bill_date"
-            placeholder="Bill date mm-dd-yyyy"
-          />
-          <input type="text" name="subscription_price" placeholder="Price" />
-          <button>Create a new subscription</button>
-        </Form>
+          {/* Conditionally render the subscription form if isFormOpen is true */}
+          {isFormOpen && (
+            <Form className="subscription-form" method="post" action="/create">
+              <input
+                type="text"
+                name="name_of_subscription"
+                placeholder="Subscription"
+              />
+              <input
+                type="text"
+                name="subscription_image_url"
+                placeholder="Image url"
+              />
+              <input
+                type="text"
+                name="bill_date"
+                placeholder="Bill date mm-dd-yyyy"
+              />
+              <input
+                type="text"
+                name="subscription_price"
+                placeholder="Price"
+              />
+              <button>Create a new subscription</button>
+            </Form>
+          )}
+
+          {/* Render the SearchBar component */}
+          <SearchBar />
+
+          {/* Create a list of bills */}
+          <ul className="bills-list">
+            {bills.map((bill) => (
+              <li key={bill.id}>
+                {/* Render the Post component with bill data */}
+                <Post post={bill} />
+                {/* Display formatted bill date using the formatBillDate function */}
+                <h2>Bill Date: {formatBillDate(bill.bill_date)}</h2>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="index-container">
+          <Link to="/auth/login">
+            <button>Login</button>
+          </Link>
+          <Link to="/auth/signup">
+            <button>Sign Up</button>
+          </Link>
+        </div>
       )}
-
-      {/* Render the SearchBar component */}
-      <SearchBar />
-
-      {/* Create a list of bills */}
-      <ul className="bills-list">
-        {bills.map((bill) => (
-          <li key={bill.id}>
-            {/* Render the Post component with bill data */}
-            <Post post={bill} />
-            {/* Display formatted bill date using the formatBillDate function */}
-            <h2>Bill Date: {formatBillDate(bill.bill_date)}</h2>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
