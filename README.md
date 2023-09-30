@@ -3,7 +3,7 @@
 
 - [**LINK TO BACKEND GITHUB**](https://github.com/TaylorMurdock/bill_buddy_backend)
 - [**LINK TO FRONTEND GITHUB**](https://github.com/TaylorMurdock/bill_buddy_frontend)
-- [**LINK TO DEPLOYED WEBSITE**](https://billbuddy-frontend.onrender.com)
+- [**LINK TO DEPLOYED WEBSITE**](https://unique-souffle-399e58.netlify.app/)
 
 **List of technologies used:**
 
