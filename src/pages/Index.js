@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
-import { useLoaderData, Form, redirect, Link } from "react-router-dom";
+import { useLoaderData, Form, Link } from "react-router-dom";
 import Post from "../components/Post";
 import SearchBar from "../components/SearchBar";
 import "../index.css"; // Import your custom CSS file
