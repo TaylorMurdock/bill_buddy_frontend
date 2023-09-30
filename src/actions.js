@@ -45,7 +45,7 @@ export const deleteAction = async ({ params }) => {
   console.log("deleteAction - id:", id); // Log the ID
 
   // Make a request to delete the bill
-  await fetch(url + "/bills" + "/" + id, {
+  await fetch(url + "/bills/" + id, {
     method: "delete",
   })
     .then((response) => {
